@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXFileReference section */
+		7EBF4D9F22B83C7F003AC3F0 /* check_sat.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = check_sat.cc; sourceTree = "<group>"; };
+		7EBF4DA222B83C7F003AC3F0 /* FindDreal.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FindDreal.cmake; sourceTree = "<group>"; };
+		7EBF4DA322B83C7F003AC3F0 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		7EBF4DA422B83C7F003AC3F0 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7EBF4DA522B83C7F003AC3F0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7EBF4DA822B83D65003AC3F0 /* cmake.check_cache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake.check_cache; sourceTree = "<group>"; };
+		7EBF4DA922B83D65003AC3F0 /* CMakeOutput.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeOutput.log; sourceTree = "<group>"; };
+		7EBF4DAB22B83D65003AC3F0 /* DependInfo.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DependInfo.cmake; sourceTree = "<group>"; };
+		7EBF4DAC22B83D65003AC3F0 /* depend.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = depend.make; sourceTree = "<group>"; };
+		7EBF4DAD22B83D65003AC3F0 /* cmake_clean.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_clean.cmake; sourceTree = "<group>"; };
+		7EBF4DAE22B83D65003AC3F0 /* link.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = link.txt; sourceTree = "<group>"; };
+		7EBF4DAF22B83D65003AC3F0 /* progress.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = progress.make; sourceTree = "<group>"; };
+		7EBF4DB022B83D65003AC3F0 /* build.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build.make; sourceTree = "<group>"; };
+		7EBF4DB122B83D65003AC3F0 /* flags.make */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flags.make; sourceTree = "<group>"; };
+		7EBF4DB222B83D65003AC3F0 /* feature_tests.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = feature_tests.bin; sourceTree = "<group>"; };
+		7EBF4DB422B83D65003AC3F0 /* CMakeDetermineCompilerABI_CXX.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = CMakeDetermineCompilerABI_CXX.bin; sourceTree = "<group>"; };
+		7EBF4DB522B83D65003AC3F0 /* CMakeDetermineCompilerABI_C.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = CMakeDetermineCompilerABI_C.bin; sourceTree = "<group>"; };
+		7EBF4DB722B83D65003AC3F0 /* CMakeCCompilerId.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CMakeCCompilerId.c; sourceTree = "<group>"; };
+		7EBF4DB822B83D65003AC3F0 /* a.out */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = a.out; sourceTree = "<group>"; };
+		7EBF4DBB22B83D65003AC3F0 /* a.out */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = a.out; sourceTree = "<group>"; };
+		7EBF4DBC22B83D65003AC3F0 /* CMakeCXXCompilerId.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CMakeCXXCompilerId.cpp; sourceTree = "<group>"; };
+		7EBF4DBE22B83D65003AC3F0 /* CMakeCXXCompiler.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeCXXCompiler.cmake; sourceTree = "<group>"; };
+		7EBF4DBF22B83D65003AC3F0 /* CMakeCCompiler.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeCCompiler.cmake; sourceTree = "<group>"; };
+		7EBF4DC022B83D65003AC3F0 /* CMakeSystem.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeSystem.cmake; sourceTree = "<group>"; };
+		7EBF4DC122B83D65003AC3F0 /* feature_tests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = feature_tests.c; sourceTree = "<group>"; };
+		7EBF4DC222B83D65003AC3F0 /* Makefile.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.cmake; sourceTree = "<group>"; };
+		7EBF4DC422B83D65003AC3F0 /* progress.marks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = progress.marks; sourceTree = "<group>"; };
+		7EBF4DC522B83D65003AC3F0 /* TargetDirectories.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TargetDirectories.txt; sourceTree = "<group>"; };
+		7EBF4DC622B83D65003AC3F0 /* CMakeDirectoryInformation.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeDirectoryInformation.cmake; sourceTree = "<group>"; };
+		7EBF4DC722B83D65003AC3F0 /* feature_tests.cxx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = feature_tests.cxx; sourceTree = "<group>"; };
+		7EBF4DC822B83D65003AC3F0 /* Makefile2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile2; sourceTree = "<group>"; };
+		7EBF4DC922B83D65003AC3F0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		7EBF4DCA22B83D65003AC3F0 /* cmake_install.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_install.cmake; sourceTree = "<group>"; };
+		7EBF4DCB22B83D65003AC3F0 /* CMakeCache.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeCache.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		7EBF4D9422B83C49003AC3F0 = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DA622B83D65003AC3F0 /* build */,
+				7EBF4D9F22B83C7F003AC3F0 /* check_sat.cc */,
+				7EBF4DA022B83C7F003AC3F0 /* cmake */,
+				7EBF4DA322B83C7F003AC3F0 /* CMakeLists.txt */,
+				7EBF4DA422B83C7F003AC3F0 /* LICENSE */,
+				7EBF4DA522B83C7F003AC3F0 /* README.md */,
+			);
+			sourceTree = "<group>";
+		};
+		7EBF4DA022B83C7F003AC3F0 /* cmake */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DA122B83C7F003AC3F0 /* modules */,
+			);
+			path = cmake;
+			sourceTree = "<group>";
+		};
+		7EBF4DA122B83C7F003AC3F0 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DA222B83C7F003AC3F0 /* FindDreal.cmake */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		7EBF4DA622B83D65003AC3F0 /* build */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DA722B83D65003AC3F0 /* CMakeFiles */,
+				7EBF4DC922B83D65003AC3F0 /* Makefile */,
+				7EBF4DCA22B83D65003AC3F0 /* cmake_install.cmake */,
+				7EBF4DCB22B83D65003AC3F0 /* CMakeCache.txt */,
+			);
+			path = build;
+			sourceTree = "<group>";
+		};
+		7EBF4DA722B83D65003AC3F0 /* CMakeFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DA822B83D65003AC3F0 /* cmake.check_cache */,
+				7EBF4DA922B83D65003AC3F0 /* CMakeOutput.log */,
+				7EBF4DAA22B83D65003AC3F0 /* check_sat.dir */,
+				7EBF4DB222B83D65003AC3F0 /* feature_tests.bin */,
+				7EBF4DB322B83D65003AC3F0 /* 3.14.5 */,
+				7EBF4DC122B83D65003AC3F0 /* feature_tests.c */,
+				7EBF4DC222B83D65003AC3F0 /* Makefile.cmake */,
+				7EBF4DC322B83D65003AC3F0 /* CMakeTmp */,
+				7EBF4DC422B83D65003AC3F0 /* progress.marks */,
+				7EBF4DC522B83D65003AC3F0 /* TargetDirectories.txt */,
+				7EBF4DC622B83D65003AC3F0 /* CMakeDirectoryInformation.cmake */,
+				7EBF4DC722B83D65003AC3F0 /* feature_tests.cxx */,
+				7EBF4DC822B83D65003AC3F0 /* Makefile2 */,
+			);
+			path = CMakeFiles;
+			sourceTree = "<group>";
+		};
+		7EBF4DAA22B83D65003AC3F0 /* check_sat.dir */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DAB22B83D65003AC3F0 /* DependInfo.cmake */,
+				7EBF4DAC22B83D65003AC3F0 /* depend.make */,
+				7EBF4DAD22B83D65003AC3F0 /* cmake_clean.cmake */,
+				7EBF4DAE22B83D65003AC3F0 /* link.txt */,
+				7EBF4DAF22B83D65003AC3F0 /* progress.make */,
+				7EBF4DB022B83D65003AC3F0 /* build.make */,
+				7EBF4DB122B83D65003AC3F0 /* flags.make */,
+			);
+			path = check_sat.dir;
+			sourceTree = "<group>";
+		};
+		7EBF4DB322B83D65003AC3F0 /* 3.14.5 */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DB422B83D65003AC3F0 /* CMakeDetermineCompilerABI_CXX.bin */,
+				7EBF4DB522B83D65003AC3F0 /* CMakeDetermineCompilerABI_C.bin */,
+				7EBF4DB622B83D65003AC3F0 /* CompilerIdC */,
+				7EBF4DBA22B83D65003AC3F0 /* CompilerIdCXX */,
+				7EBF4DBE22B83D65003AC3F0 /* CMakeCXXCompiler.cmake */,
+				7EBF4DBF22B83D65003AC3F0 /* CMakeCCompiler.cmake */,
+				7EBF4DC022B83D65003AC3F0 /* CMakeSystem.cmake */,
+			);
+			path = 3.14.5;
+			sourceTree = "<group>";
+		};
+		7EBF4DB622B83D65003AC3F0 /* CompilerIdC */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DB722B83D65003AC3F0 /* CMakeCCompilerId.c */,
+				7EBF4DB822B83D65003AC3F0 /* a.out */,
+				7EBF4DB922B83D65003AC3F0 /* tmp */,
+			);
+			path = CompilerIdC;
+			sourceTree = "<group>";
+		};
+		7EBF4DB922B83D65003AC3F0 /* tmp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tmp;
+			sourceTree = "<group>";
+		};
+		7EBF4DBA22B83D65003AC3F0 /* CompilerIdCXX */ = {
+			isa = PBXGroup;
+			children = (
+				7EBF4DBB22B83D65003AC3F0 /* a.out */,
+				7EBF4DBC22B83D65003AC3F0 /* CMakeCXXCompilerId.cpp */,
+				7EBF4DBD22B83D65003AC3F0 /* tmp */,
+			);
+			path = CompilerIdCXX;
+			sourceTree = "<group>";
+		};
+		7EBF4DBD22B83D65003AC3F0 /* tmp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tmp;
+			sourceTree = "<group>";
+		};
+		7EBF4DC322B83D65003AC3F0 /* CMakeTmp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CMakeTmp;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		7EBF4D9922B83C49003AC3F0 /* dreal-cmake-example-project */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 7EBF4D9C22B83C49003AC3F0 /* Build configuration list for PBXLegacyTarget "dreal-cmake-example-project" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "/Users/yoshitakashima/Desktop/dreal-cmake-example-project/build";
+			dependencies = (
+			);
+			name = "dreal-cmake-example-project";
+			passBuildSettingsInEnvironment = 1;
+			productName = "dreal-cmake-example-project";
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXProject section */
+		7EBF4D9522B83C49003AC3F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Yoshi Takashima";
+				TargetAttributes = {
+					7EBF4D9922B83C49003AC3F0 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 7EBF4D9822B83C49003AC3F0 /* Build configuration list for PBXProject "dreal-cmake-example-project" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7EBF4D9422B83C49003AC3F0;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EBF4D9922B83C49003AC3F0 /* dreal-cmake-example-project */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		7EBF4D9A22B83C49003AC3F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		7EBF4D9B22B83C49003AC3F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+			};
+			name = Release;
+		};
+		7EBF4D9D22B83C49003AC3F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = T9AJY2U8C9;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7EBF4D9E22B83C49003AC3F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = T9AJY2U8C9;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7EBF4D9822B83C49003AC3F0 /* Build configuration list for PBXProject "dreal-cmake-example-project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EBF4D9A22B83C49003AC3F0 /* Debug */,
+				7EBF4D9B22B83C49003AC3F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EBF4D9C22B83C49003AC3F0 /* Build configuration list for PBXLegacyTarget "dreal-cmake-example-project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EBF4D9D22B83C49003AC3F0 /* Debug */,
+				7EBF4D9E22B83C49003AC3F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7EBF4D9522B83C49003AC3F0 /* Project object */;
+}
