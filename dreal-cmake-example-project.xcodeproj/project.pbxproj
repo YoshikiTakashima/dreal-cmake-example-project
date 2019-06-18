@@ -41,12 +41,20 @@
 		7EBF4DC922B83D65003AC3F0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		7EBF4DCA22B83D65003AC3F0 /* cmake_install.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_install.cmake; sourceTree = "<group>"; };
 		7EBF4DCB22B83D65003AC3F0 /* CMakeCache.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeCache.txt; sourceTree = "<group>"; };
+		7EF0B36622B986AD00E34C1B /* TestFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestFunction.cpp; sourceTree = "<group>"; };
+		7EF0B36722B986AD00E34C1B /* TestFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestFunction.hpp; sourceTree = "<group>"; };
+		7EF0B36822B9903E00E34C1B /* LeviN13.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeviN13.cpp; sourceTree = "<group>"; };
+		7EF0B36922B9903E00E34C1B /* LeviN13.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeviN13.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		7EBF4D9422B83C49003AC3F0 = {
 			isa = PBXGroup;
 			children = (
+				7EF0B36822B9903E00E34C1B /* LeviN13.cpp */,
+				7EF0B36922B9903E00E34C1B /* LeviN13.hpp */,
+				7EF0B36622B986AD00E34C1B /* TestFunction.cpp */,
+				7EF0B36722B986AD00E34C1B /* TestFunction.hpp */,
 				7EBF4DA622B83D65003AC3F0 /* build */,
 				7EBF4D9F22B83C7F003AC3F0 /* check_sat.cc */,
 				7EBF4DA022B83C7F003AC3F0 /* cmake */,
