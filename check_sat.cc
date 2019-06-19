@@ -30,7 +30,7 @@ namespace dreal {
 			
 			const TestFunction& tf = LeviN13();
 			const Expression f = tf.getFunction(x,y);
-			const Formula c = tf.getConstraint(x,y,0.2865351596420039892);
+			const Formula c = tf.getConstraint(x,y,0.286);
 			
 			high_resolution_clock::time_point t1 = high_resolution_clock::now();
 			optional<Box> result = Minimize(f, c, delta);
