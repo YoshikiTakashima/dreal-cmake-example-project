@@ -3,6 +3,7 @@
 #include <vector>
 #include <numeric>
 #include <chrono>
+#include <stdlib.h>
 
 #include "dreal/dreal.h"
 
@@ -10,6 +11,9 @@
 #include "TestFunction.cpp"
 #include "LeviN13.hpp"
 #include "LeviN13.cpp"
+
+#include "Optimizer.hpp"
+#include "Optimizer.cpp"
 
 namespace dreal {
 	namespace {
@@ -26,7 +30,7 @@ namespace dreal {
 			
 			const TestFunction& tf = LeviN13();
 			const Expression f = tf.getFunction(x,y);
-			const Formula c = tf.getConstraint(x,y,10);
+			const Formula c = tf.getConstraint(x,y,0.2865351596420039892);
 			
 			high_resolution_clock::time_point t1 = high_resolution_clock::now();
 			optional<Box> result = Minimize(f, c, delta);
@@ -45,7 +49,21 @@ namespace dreal {
 			return 0;
 		}
 		
-		void minimize_model(int numTests, int numRandomIter,const TestFunction& tf) {
+		void test_random(int numRandomIter,const TestFunction& tf, const Optimizer& opt){
+			high_resolution_clock::time_point t1;
+			high_resolution_clock::time_point t2;
+			std::chrono::duration<double, std::milli> execTime;
+			
+			t1 = high_resolution_clock::now();
+			double approx_min = opt.optimize(tf, numRandomIter);
+			t2 = high_resolution_clock::now();
+			execTime = t2 - t1;
+			
+			cout << "Random approx of min:" << approx_min << endl;
+			cout << "Time it took: " << execTime.count() << endl;
+		}
+		
+		void compare_on_model(int numTests, int numRandomIter,const TestFunction& tf, const Optimizer& opt) {
 			vector<double> execTimes1;
 			const double delta = 0.001;
 			const Variable x{"x"};
@@ -73,5 +91,7 @@ namespace dreal {
 }  // namespace dreal
 
 int main() {
+	srand (time(NULL));
 	dreal::minimize_main();
+	dreal::test_random(1000, dreal::LeviN13(), dreal::Optimizer());
 }

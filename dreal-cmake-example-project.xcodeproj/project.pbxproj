@@ -45,12 +45,16 @@
 		7EF0B36722B986AD00E34C1B /* TestFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestFunction.hpp; sourceTree = "<group>"; };
 		7EF0B36822B9903E00E34C1B /* LeviN13.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeviN13.cpp; sourceTree = "<group>"; };
 		7EF0B36922B9903E00E34C1B /* LeviN13.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeviN13.hpp; sourceTree = "<group>"; };
+		7EF0B36A22B9AB3B00E34C1B /* Optimizer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Optimizer.cpp; sourceTree = "<group>"; };
+		7EF0B36B22B9AB3B00E34C1B /* Optimizer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Optimizer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		7EBF4D9422B83C49003AC3F0 = {
 			isa = PBXGroup;
 			children = (
+				7EF0B36A22B9AB3B00E34C1B /* Optimizer.cpp */,
+				7EF0B36B22B9AB3B00E34C1B /* Optimizer.hpp */,
 				7EF0B36822B9903E00E34C1B /* LeviN13.cpp */,
 				7EF0B36922B9903E00E34C1B /* LeviN13.hpp */,
 				7EF0B36622B986AD00E34C1B /* TestFunction.cpp */,

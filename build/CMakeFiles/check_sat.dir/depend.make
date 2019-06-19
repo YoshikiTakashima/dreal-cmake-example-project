@@ -3,6 +3,8 @@
 
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../LeviN13.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../LeviN13.hpp
+CMakeFiles/check_sat.dir/check_sat.cc.o: ../Optimizer.cpp
+CMakeFiles/check_sat.dir/check_sat.cc.o: ../Optimizer.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../TestFunction.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../TestFunction.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../check_sat.cc
