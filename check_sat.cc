@@ -11,6 +11,8 @@
 #include "TestFunction.cpp"
 #include "LeviN13.hpp"
 #include "LeviN13.cpp"
+#include "Booth.hpp"
+#include "Booth.cpp"
 
 #include "Optimizer.hpp"
 #include "Optimizer.cpp"
@@ -61,7 +63,7 @@ namespace dreal {
 			
 			cout << "Using: " << opt << endl;
 			cout << "Random approx of min:" << approx_min << endl;
-			cout << "Time it took: " << execTime.count() << endl << endl;
+			cout << "Time it took: " << execTime.count() << endl << endl << endl;
 		}
 		
 		void compare_on_model(int numTests, int numRandomIter,const TestFunction& tf, const Optimizer& opt) {
@@ -95,9 +97,6 @@ namespace dreal {
 				estimateMin = opt.optimize(tf, numRandomIter);
 				o2 = high_resolution_clock::now();
 				
-//				const Variable x2{"x"};
-//				const Variable y2{"y"};
-//				const Expression f2 = tf.getFunction(x2,y2);
 				const Formula cReduced = tf.getConstraint(x,y,estimateMin);
 				r1 = high_resolution_clock::now();
 				result2 = Minimize(f, cReduced, delta);
@@ -147,9 +146,10 @@ int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 	srand (time(NULL));
 //	dreal::minimize_main();
-//	dreal::test_random(1000, dreal::LeviN13(), dreal::Optimizer());
+//	dreal::test_random(100000, dreal::Booth(), dreal::Optimizer());
 	
-	dreal::compare_on_model(300, 1000, dreal::LeviN13(), dreal::Optimizer());
+//	dreal::compare_on_model(300, 1000, dreal::LeviN13(), dreal::Optimizer());
+	dreal::compare_on_model(100, 100000, dreal::Booth(), dreal::Optimizer());
 	
 	return 0;
 }

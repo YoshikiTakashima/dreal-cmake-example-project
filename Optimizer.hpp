@@ -10,9 +10,9 @@
 #define Optimizer_hpp
 
 #include <stdlib.h>
+#include <random>
 
 #include "TestFunction.hpp"
-//#include "TestFunction.cpp"
 
 namespace dreal {
 	class Optimizer {

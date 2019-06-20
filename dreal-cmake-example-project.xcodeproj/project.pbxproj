@@ -41,6 +41,10 @@
 		7EBF4DC922B83D65003AC3F0 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		7EBF4DCA22B83D65003AC3F0 /* cmake_install.cmake */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cmake_install.cmake; sourceTree = "<group>"; };
 		7EBF4DCB22B83D65003AC3F0 /* CMakeCache.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeCache.txt; sourceTree = "<group>"; };
+		7EE73B8E22BBF6A6001AFE39 /* Booth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Booth.cpp; sourceTree = "<group>"; };
+		7EE73B8F22BBF6A6001AFE39 /* Booth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Booth.hpp; sourceTree = "<group>"; };
+		7EE73B9022BC0211001AFE39 /* Evolutionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Evolutionary.cpp; sourceTree = "<group>"; };
+		7EE73B9122BC0211001AFE39 /* Evolutionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Evolutionary.hpp; sourceTree = "<group>"; };
 		7EF0B36622B986AD00E34C1B /* TestFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestFunction.cpp; sourceTree = "<group>"; };
 		7EF0B36722B986AD00E34C1B /* TestFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestFunction.hpp; sourceTree = "<group>"; };
 		7EF0B36822B9903E00E34C1B /* LeviN13.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeviN13.cpp; sourceTree = "<group>"; };
@@ -53,6 +57,10 @@
 		7EBF4D9422B83C49003AC3F0 = {
 			isa = PBXGroup;
 			children = (
+				7EE73B9022BC0211001AFE39 /* Evolutionary.cpp */,
+				7EE73B9122BC0211001AFE39 /* Evolutionary.hpp */,
+				7EE73B8E22BBF6A6001AFE39 /* Booth.cpp */,
+				7EE73B8F22BBF6A6001AFE39 /* Booth.hpp */,
 				7EF0B36A22B9AB3B00E34C1B /* Optimizer.cpp */,
 				7EF0B36B22B9AB3B00E34C1B /* Optimizer.hpp */,
 				7EF0B36822B9903E00E34C1B /* LeviN13.cpp */,

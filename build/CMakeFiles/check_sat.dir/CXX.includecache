@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/yoshitakashima/Desktop/dreal-cmake-example-project/Booth.cpp
+Booth.hpp
+/Users/yoshitakashima/Desktop/dreal-cmake-example-project/Booth.hpp
+
+/Users/yoshitakashima/Desktop/dreal-cmake-example-project/Booth.hpp
+TestFunction.hpp
+/Users/yoshitakashima/Desktop/dreal-cmake-example-project/TestFunction.hpp
+
 /Users/yoshitakashima/Desktop/dreal-cmake-example-project/LeviN13.cpp
 LeviN13.hpp
 /Users/yoshitakashima/Desktop/dreal-cmake-example-project/LeviN13.hpp
@@ -69,6 +77,10 @@ LeviN13.hpp
 /Users/yoshitakashima/Desktop/dreal-cmake-example-project/LeviN13.hpp
 LeviN13.cpp
 /Users/yoshitakashima/Desktop/dreal-cmake-example-project/LeviN13.cpp
+Booth.hpp
+/Users/yoshitakashima/Desktop/dreal-cmake-example-project/Booth.hpp
+Booth.cpp
+/Users/yoshitakashima/Desktop/dreal-cmake-example-project/Booth.cpp
 Optimizer.hpp
 /Users/yoshitakashima/Desktop/dreal-cmake-example-project/Optimizer.hpp
 Optimizer.cpp
