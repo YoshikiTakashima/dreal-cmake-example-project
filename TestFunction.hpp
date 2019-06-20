@@ -11,6 +11,7 @@
 #define TestFunction_hpp
 
 #include <iostream>
+#include <string>
 #include <cmath>
 #include <vector>
 #include <tuple>
@@ -27,6 +28,9 @@ namespace dreal {
 		virtual Expression getFunction(const Variable& x, const Variable& y) const;
 		virtual Formula getConstraint(const Variable& x, const Variable& y) const;
 		Formula getConstraint(const Variable& x, const Variable& y, const double value) const;
+		
+		virtual std::string name() const;
+		friend std::ostream& operator<< (std::ostream &out, TestFunction const& f);
 		
 	protected:
 		const std::tuple<double,double,double,double> dom = std::make_tuple(10, -10, 10, -10);

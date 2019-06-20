@@ -18,6 +18,8 @@ namespace dreal {
 	class Optimizer {
 	public:
 		virtual double optimize(const TestFunction& tf, int numIter) const;
+		virtual std::string name() const;
+		friend std::ostream& operator<< (std::ostream &out, Optimizer const& c);
 	protected:
 		double random(double min, double max) const;
 	};

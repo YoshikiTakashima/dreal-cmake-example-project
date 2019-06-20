@@ -27,4 +27,8 @@ namespace dreal {
 	Formula LeviN13::getConstraint(const Variable& x, const Variable& y) const {
 		return ((-10 <= x) && (x <= 10) && (-10 <= y) && (y <= 10));
 	};
+	
+	std::string LeviN13::name() const {
+		return "Levi N.13";
+	};
 }

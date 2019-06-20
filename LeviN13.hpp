@@ -18,6 +18,8 @@ namespace dreal {
 		double eval(const double x, const double y) const;
 		Expression getFunction(const Variable& x, const Variable& y) const;
 		Formula getConstraint(const Variable& x, const Variable& y) const;
+		
+		virtual std::string name() const;
 	};
 }
 

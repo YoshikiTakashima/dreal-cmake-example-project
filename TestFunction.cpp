@@ -26,4 +26,13 @@ namespace dreal {
 	Formula TestFunction::getConstraint(const Variable& x, const Variable& y, const double value) const {
 		return ((this->getConstraint(x,y)) && ((this->getFunction(x,y)) <= value));
 	};
+	
+	std::string TestFunction::name() const {
+		return "Simple Test function: f(x,y) = x*y";
+	};
+	
+	std::ostream& operator<< (std::ostream &out, TestFunction const& f) {
+		out << f.name();
+		return out;
+	};
 }

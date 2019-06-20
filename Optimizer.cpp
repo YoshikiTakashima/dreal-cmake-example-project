@@ -25,6 +25,14 @@ namespace dreal {
 		}
 		return best;
 	};
+	std::string Optimizer::name() const {
+		return "Uniform Random Minimization";
+	}
+	
+	std::ostream& operator<< (std::ostream &out, Optimizer const& c) {
+		out << c.name();
+		return out;
+	};
 	
 	double Optimizer::random(double min, double max) const {
 		return (((max - min)*(((double) rand()) / ((double)RAND_MAX))) + min);
