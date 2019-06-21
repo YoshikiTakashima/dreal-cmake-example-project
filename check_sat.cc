@@ -148,11 +148,13 @@ int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 	srand (time(NULL));
 //	dreal::minimize_main();
-//	dreal::test_random(1000, dreal::Booth(), dreal::Optimizer());
-	dreal::test_random(1000, dreal::Booth(), dreal::Evolutionary());
+//	dreal::test_random(50000, dreal::Booth(), dreal::Optimizer());
+//	dreal::test_random(50000, dreal::Booth(), dreal::Evolutionary());
 	
 //	dreal::compare_on_model(300, 1000, dreal::LeviN13(), dreal::Optimizer());
-//	dreal::compare_on_model(100, 100000, dreal::Booth(), dreal::Optimizer());
+	
+	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Optimizer());
+	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Evolutionary());
 	
 	return 0;
 }

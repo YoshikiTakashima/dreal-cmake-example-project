@@ -17,11 +17,15 @@
 namespace dreal {
 	class Optimizer {
 	public:
+		Optimizer();
 		virtual double optimize(const TestFunction& tf, int numIter) const;
 		virtual std::string name() const;
 		friend std::ostream& operator<< (std::ostream &out, Optimizer const& c);
 	protected:
 		double random(double min, double max) const;
+		double stNormal() const;
+		std::default_random_engine generator;
+		std::normal_distribution<double> N;
 		
 		class Point {
 		public:

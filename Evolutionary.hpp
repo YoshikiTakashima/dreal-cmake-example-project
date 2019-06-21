@@ -18,8 +18,7 @@ namespace dreal {
 	public:
 		virtual double optimize(const TestFunction& tf, int numIter) const;
 		virtual std::string name() const;
-	protected:
-		double evolve(double x, double y, double z) const;
+	
 	};
 }
 #endif /* Evolutionary_hpp */

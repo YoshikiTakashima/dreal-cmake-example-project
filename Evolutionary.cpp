@@ -13,7 +13,9 @@ namespace dreal {
 	using std::sort;
 	
 	double Evolutionary::optimize(const TestFunction& tf, int numIter) const {
-		const int initSamples = (int) 0.05 * numIter;
+		const int numEvolveRounds = 10000;
+		const int initSamples = (int) 0.005 * numIter;
+		
 		std::tuple<double, double, double, double> domain = tf.domain();
 		double maxX = std::get<0>(domain);
 		double minX = std::get<1>(domain);
@@ -34,18 +36,53 @@ namespace dreal {
 			}
 		}
 		
+		/*Evolve top (initSamples) points*/
+		const double lam = 0.85;
+		const int numSamplesPerRound = 10;
 		double best = points.top()();
-		while(!points.empty()) {
+		double sigma = std::max((maxX - minX)/ ((double) numIter), (maxY - minY)/ ((double) numIter));
+		double bestX;
+		double bestY;
+		double bestZ;
+		double currX;
+		double currY;
+		double currZ;
+		int numSuccess;
+		while(false &&!points.empty()) {
 			Point pt = points.top();
-			best = std::min(best, this->evolve(pt.first, pt.second, pt.value));
+			x = pt.first;
+			y = pt.second;
+			z = pt();
+			for(int i = 0; i < numEvolveRounds; i++){
+				numSuccess = 0;
+				bestX = x;
+				bestY = y;
+				bestZ = z;
+				for(int j = 0; j < numSamplesPerRound; j++) {
+					currX = std::max(minX, std::min(maxX, x + (sigma*this->stNormal())));
+					currY = std::max(minY, std::min(maxY, y + (sigma*this->stNormal())));
+					currZ = tf.eval(currX, currY);
+
+					if(currZ < bestZ) {
+						bestX = currX;
+						bestY = currY;
+						bestZ = currZ;
+						numSuccess++;
+					}
+				}
+				x = bestX;
+				y = bestY;
+				z = bestZ;
+				if(numSuccess < (numSamplesPerRound/5))
+					sigma = sigma * lam;
+				else
+					sigma = sigma / lam;
+			}
+			best = std::min(best, bestZ);
 			points.pop();
 		}
 		
 		return best;
-	};
-	
-	double Evolutionary::evolve(double x, double y, double z) const {
-		return z; //actually implement some stuff tomorrow.
 	};
 	
 	std::string Evolutionary::name() const {

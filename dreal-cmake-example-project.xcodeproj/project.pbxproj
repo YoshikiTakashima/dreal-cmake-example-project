@@ -45,6 +45,8 @@
 		7EE73B8F22BBF6A6001AFE39 /* Booth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Booth.hpp; sourceTree = "<group>"; };
 		7EE73B9222BC4EF7001AFE39 /* Evolutionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Evolutionary.cpp; sourceTree = "<group>"; };
 		7EE73B9322BC4EF7001AFE39 /* Evolutionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Evolutionary.hpp; sourceTree = "<group>"; };
+		7EE8083822BD3C300079715B /* Annealing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Annealing.cpp; sourceTree = "<group>"; };
+		7EE8083922BD3C300079715B /* Annealing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Annealing.hpp; sourceTree = "<group>"; };
 		7EF0B36622B986AD00E34C1B /* TestFunction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TestFunction.cpp; sourceTree = "<group>"; };
 		7EF0B36722B986AD00E34C1B /* TestFunction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestFunction.hpp; sourceTree = "<group>"; };
 		7EF0B36822B9903E00E34C1B /* LeviN13.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeviN13.cpp; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		7EBF4D9422B83C49003AC3F0 = {
 			isa = PBXGroup;
 			children = (
+				7EE8083822BD3C300079715B /* Annealing.cpp */,
+				7EE8083922BD3C300079715B /* Annealing.hpp */,
 				7EE73B9222BC4EF7001AFE39 /* Evolutionary.cpp */,
 				7EE73B9322BC4EF7001AFE39 /* Evolutionary.hpp */,
 				7EE73B8E22BBF6A6001AFE39 /* Booth.cpp */,

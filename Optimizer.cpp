@@ -8,7 +8,11 @@
 
 #include "Optimizer.hpp"
 
+#define _USE_MATH_DEFINES
 namespace dreal {
+	Optimizer::Optimizer() {
+	};
+	
 	double Optimizer::optimize(const TestFunction& tf, int numIter) const {
 		std::tuple<double, double, double, double> domain = tf.domain();
 		double maxX = std::get<0>(domain);
@@ -27,7 +31,7 @@ namespace dreal {
 	};
 	std::string Optimizer::name() const {
 		return "Uniform Random Minimization";
-	}
+	};
 	
 	std::ostream& operator<< (std::ostream &out, Optimizer const& c) {
 		out << c.name();
@@ -35,6 +39,13 @@ namespace dreal {
 	};
 	
 	double Optimizer::random(double min, double max) const {
-		return (((max - min)*(((double) rand()) / ((double)RAND_MAX))) + min);
+		double r = std::max(1, std::min(rand(),RAND_MAX-1)); // make it exlcusive of endpoints.
+		return (((max - min)*(r / ((double) RAND_MAX))) + min);
+	};
+	
+	double Optimizer:: stNormal() const {
+		double u1 = this->random(0,1);
+		double u2 = this->random(0,1);
+		return std::sqrt(-2*std::log(u1))*std::cos(2*M_PI*u2);
 	};
 };
