@@ -23,7 +23,7 @@ namespace dreal {
 		x = this->random(minX,maxX);
 		y = this->random(minY,maxY);
 		temp = 1;
-		const double tempDecrease = 0.95;
+		const double tempDecrease = 0.99;
 		
 		for(int i = 0; i < numIter; i++) {
 			z = tf.eval(x,y);

@@ -65,7 +65,7 @@ namespace dreal {
 			execTime = t2 - t1;
 			
 			cout << "Test Function: " << tf << endl;
-			cout << "Using: " << opt << endl;
+			cout << "Using: " << opt << ", " << numRandomIter << " rounds." << endl;
 			cout << "Random approx of min:" << approx_min << endl;
 			cout << "Time it took: " << execTime.count() << endl << endl << endl;
 		}
@@ -136,12 +136,12 @@ namespace dreal {
 			
 			cout << "Test Function: " << tf << ", " << numTests << " experiments." << endl;
 			cout << "Direct Solve: " << ave << " (ms)." << endl;
-			cout << "Estimation Method: " << opt << endl;
+			cout << "Estimation Method: " << opt << ", " << numRandomIter << " rounds." << endl;
 			cout << "Time to Estimate Min: " << aveOpt << " (ms)." << endl;
 			cout << "Estimate-Assisted Solve: " << aveRed << " (ms)." << endl;
 			cout << "Total Assisted Solve: " << (aveRed + aveOpt) << " (ms)." << endl;
 			cout << "Speedup: " << (ave / (aveRed + aveOpt)) << endl;
-			cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+			cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl<< endl<< endl;
 		}
 	}  // namespace
 }  // namespace dreal
@@ -149,22 +149,22 @@ namespace dreal {
 int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 	srand (time(NULL));
-//	dreal::minimize_main();
-//	dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
-//	dreal::test_random(30000, dreal::LeviN13(), dreal::Evolutionary());
-//	dreal::test_random(30000, dreal::LeviN13(), dreal::Annealing());
-//	dreal::test_random(30000, dreal::Booth(), dreal::Optimizer());
-//	dreal::test_random(30000, dreal::Booth(), dreal::Evolutionary());
-//	dreal::test_random(30000, dreal::Booth(), dreal::Annealing());
-	
-//	dreal::compare_on_model(300, 1000, dreal::LeviN13(), dreal::Optimizer());
-	
-	dreal::compare_on_model(100, 10000, dreal::LeviN13(), dreal::Optimizer()); //100 experiments
-	dreal::compare_on_model(100, 10000, dreal::LeviN13(), dreal::Evolutionary()); //each with 10000 rounds
-	dreal::compare_on_model(100, 10000, dreal::LeviN13(), dreal::Annealing());    // of whichever random method
-	
-	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Optimizer()); 
-	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Evolutionary());
-	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Annealing());
+	const int choice = 1;
+	if(choice == 1) {
+		dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
+		dreal::test_random(30000, dreal::LeviN13(), dreal::Evolutionary());
+		dreal::test_random(2000, dreal::LeviN13(), dreal::Annealing());
+		dreal::test_random(30000, dreal::Booth(), dreal::Optimizer());
+		dreal::test_random(30000, dreal::Booth(), dreal::Evolutionary());
+		dreal::test_random(2000, dreal::Booth(), dreal::Annealing());
+	} else if (choice == 2) {
+		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Optimizer());
+		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Annealing());
+		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Optimizer());
+		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Annealing());
+	} else {
+//		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Annealing());
+//		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Annealing());
+	}
 	return 0;
 }
