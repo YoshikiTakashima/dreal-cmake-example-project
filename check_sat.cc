@@ -13,6 +13,8 @@
 #include "LeviN13.cpp"
 #include "Booth.hpp"
 #include "Booth.cpp"
+#include "HolderTable.hpp"
+#include "HolderTable.cpp"
 
 #include "Optimizer.hpp"
 #include "Optimizer.cpp"
@@ -36,19 +38,20 @@ namespace dreal {
 			
 			const TestFunction& tf = LeviN13();
 			const Expression f = tf.getFunction(x,y);
-			const Formula c = tf.getConstraint(x,y,0.286);
+			const Formula c = tf.getConstraint(x,y);
 			
-			high_resolution_clock::time_point t1 = high_resolution_clock::now();
-			optional<Box> result = Minimize(f, c, delta);
-			high_resolution_clock::time_point t2 = high_resolution_clock::now();
-			std::chrono::duration<double, std::milli> execTime = t2 - t1;
+			optional<Box> result;
+//			high_resolution_clock::time_point t1 = high_resolution_clock::now();
+//			result = Minimize(f, c, delta);
+//			high_resolution_clock::time_point t2 = high_resolution_clock::now();
+//			std::chrono::duration<double, std::milli> execTime = t2 - t1;
 			
+			cout << "Region:" << c << endl;
 			if (result) {
-				
-				cout << "Optimize: "<< tf << "\nMinimum Point:\n" << *result << endl;
-				cout << "\nThis took : " << execTime.count() << " ms to find min." << endl << endl;
+//				cout << "Optimize: "<< tf << "\nMinimum Point:\n" << *result << endl;
+//				cout << "\nThis took : " << execTime.count() << " ms to find min." << endl << endl;
 			} else {
-				cout << f << "what??" << endl;
+				cout << "No minimum found: what??\n" << f << endl;
 			}
 			
 			return 0;
@@ -149,7 +152,7 @@ namespace dreal {
 int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 	srand (time(NULL));
-	const int choice = 1;
+	const int choice = 3;
 	if(choice == 1) {
 		dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
 		dreal::test_random(30000, dreal::LeviN13(), dreal::Evolutionary());
@@ -165,6 +168,7 @@ int main() {
 	} else {
 //		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Annealing());
 //		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Annealing());
+		dreal::minimize_main();
 	}
 	return 0;
 }

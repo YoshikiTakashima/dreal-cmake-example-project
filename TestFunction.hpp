@@ -29,7 +29,7 @@ namespace dreal {
 		virtual double eval(const double x, const double y) const;
 		std::tuple<double,double,double,double> domain() const; //x, -x, y, -y, in that order
 		virtual Expression getFunction(const Variable& x, const Variable& y) const;
-		virtual Formula getConstraint(const Variable& x, const Variable& y) const;
+		Formula getConstraint(const Variable& x, const Variable& y) const;
 		Formula getConstraint(const Variable& x, const Variable& y, const double value) const;
 		
 		virtual std::string name() const;

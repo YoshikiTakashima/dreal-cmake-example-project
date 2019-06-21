@@ -24,9 +24,6 @@ namespace dreal {
 				(pow(x - 1,2)) * (1 + pow(sin(3 * 3.141592 * y),2)) +
 				(pow(y - 1,2)) * (1 + pow(sin(2 * 3.141592 * y),2)));
 	};
-	Formula LeviN13::getConstraint(const Variable& x, const Variable& y) const {
-		return ((-10 <= x) && (x <= 10) && (-10 <= y) && (y <= 10));
-	};
 	
 	std::string LeviN13::name() const {
 		return "Levi N.13";

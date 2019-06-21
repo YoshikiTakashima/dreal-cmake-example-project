@@ -20,9 +20,6 @@ namespace dreal {
 	Expression Booth::getFunction(const Variable& x, const Variable& y) const {
 		return (pow((x + (2*y) - 7),2) + pow(((2*x) + y - 5),2));
 	};
-	Formula Booth::getConstraint(const Variable& x, const Variable& y) const {
-		return ((-10 <= x) && (x <= 10) && (-10 <= y) && (y <= 10));
-	};
 	
 	std::string Booth::name() const {
 		return "Booth Function";
