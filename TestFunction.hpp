@@ -17,6 +17,9 @@
 #include <tuple>
 #include <numeric>
 #include <chrono>
+#include <functional>
+#include <utility>
+#include <algorithm>
 
 #include "dreal/dreal.h"
 

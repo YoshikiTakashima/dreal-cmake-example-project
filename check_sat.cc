@@ -16,6 +16,8 @@
 
 #include "Optimizer.hpp"
 #include "Optimizer.cpp"
+#include "Evolutionary.hpp"
+#include "Evolutionary.cpp"
 
 namespace dreal {
 	namespace {
@@ -42,7 +44,6 @@ namespace dreal {
 			if (result) {
 				
 				cout << "Optimize: "<< tf << "\nMinimum Point:\n" << *result << endl;
-//				cout << "Domain: " << c << endl;
 				cout << "\nThis took : " << execTime.count() << " ms to find min." << endl << endl;
 			} else {
 				cout << f << "what??" << endl;
@@ -61,6 +62,7 @@ namespace dreal {
 			t2 = high_resolution_clock::now();
 			execTime = t2 - t1;
 			
+			cout << "Test Function: " << tf << endl;
 			cout << "Using: " << opt << endl;
 			cout << "Random approx of min:" << approx_min << endl;
 			cout << "Time it took: " << execTime.count() << endl << endl << endl;
@@ -146,10 +148,11 @@ int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 	srand (time(NULL));
 //	dreal::minimize_main();
-//	dreal::test_random(100000, dreal::Booth(), dreal::Optimizer());
+//	dreal::test_random(1000, dreal::Booth(), dreal::Optimizer());
+	dreal::test_random(1000, dreal::Booth(), dreal::Evolutionary());
 	
 //	dreal::compare_on_model(300, 1000, dreal::LeviN13(), dreal::Optimizer());
-	dreal::compare_on_model(100, 100000, dreal::Booth(), dreal::Optimizer());
+//	dreal::compare_on_model(100, 100000, dreal::Booth(), dreal::Optimizer());
 	
 	return 0;
 }

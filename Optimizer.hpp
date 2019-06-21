@@ -22,6 +22,14 @@ namespace dreal {
 		friend std::ostream& operator<< (std::ostream &out, Optimizer const& c);
 	protected:
 		double random(double min, double max) const;
+		
+		class Point {
+		public:
+			double first, second, value;
+			Point(double x, double y, double value) {this->first = x; this->second = y; this->value = value;};
+			bool operator<(Point other) const {return this->value < other.value;};
+			double operator()() const {return this->value;};
+		};
 	};
 };
 #endif /* Optimizer_hpp */

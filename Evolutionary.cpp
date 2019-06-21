@@ -9,46 +9,46 @@
 #include "Evolutionary.hpp"
 
 namespace dreal {
-	using std::pair;
 	using std::priority_queue;
-	using std::queue;
-	using std::vector;
+	using std::sort;
 	
 	double Evolutionary::optimize(const TestFunction& tf, int numIter) const {
+		const int initSamples = (int) 0.05 * numIter;
 		std::tuple<double, double, double, double> domain = tf.domain();
 		double maxX = std::get<0>(domain);
 		double minX = std::get<1>(domain);
 		double maxY = std::get<2>(domain);
 		double minY = std::get<3>(domain);
 		
-		const int numInitSamples = 1000;
-		const int survivalMargin = 0.05;
-		const double thresh = 0.2;
-		const double lam = 0.85;
-		double sigma = std::max((maxX - minX)/2, (maxY - minY)/2);
-		
-		queue<pair<double, double>> wild();
-		auto cmp = [](pair<double, double> lhs, pair<double, double> rhs)
-		{
-			return tf.eval(lhs.first,lhs.second) < tf.eval(rhs.first,rhs.second);
-		};
-		std::priority_queue<int, std::vector<int>, decltype(cmp)> sorted();
-		
-		double x, y;
-		for(int i = 0; i < numInitSamples; i++) {
+		priority_queue<Point> points;
+		double x, y, z;
+		for(int i = 0; i < numIter; i++) {
 			x = this->random(minX,maxX);
 			y = this->random(minY,maxY);
-			sorted.push(pair<double,double>(x,y));
+			z = tf.eval(x,y);
+			if(points.size() <= initSamples)
+				points.push(Point(x,y,z));
+			else if(z < points.top()()) {
+				points.push(Point(x,y,z));
+				points.pop();
+			}
 		}
-		selectTopP(wild, sorted, survivalMargin);
 		
-		double sucessRate;
-		for(int i = 0; i < numIter; i++) {
-			sucessRate = this->growPopulation(,,)
+		double best = points.top()();
+		while(!points.empty()) {
+			Point pt = points.top();
+			best = std::min(best, this->evolve(pt.first, pt.second, pt.value));
+			points.pop();
 		}
-		return 0; //return minimum of list.
+		
+		return best;
 	};
+	
+	double Evolutionary::evolve(double x, double y, double z) const {
+		return z; //actually implement some stuff tomorrow.
+	};
+	
 	std::string Evolutionary::name() const {
-		return "Evolutionary Minimum Selection";
+		return "Evolutionary Strategy Minimization";
 	}
 };

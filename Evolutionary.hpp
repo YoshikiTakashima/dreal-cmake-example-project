@@ -9,28 +9,17 @@
 #ifndef Evolutionary_hpp
 #define Evolutionary_hpp
 
-#include <priority_queue>
-#include <unordered_set>
+#include <queue>
 
 #include "Optimizer.hpp"
 
-
 namespace dreal {
-	using std::pair;
-	using std::priority_queue;
-	using std::queue;
-	
-	class Evolutionary {
+	class Evolutionary: public virtual Optimizer {
 	public:
 		virtual double optimize(const TestFunction& tf, int numIter) const;
 		virtual std::string name() const;
 	protected:
-		std::random_device source;
-		std::mt19937 generator(source());
-		
-		double growPopulation(queue<pair<double, double>>&wild, priority_queue<pair<double, double>>&sorted,int n);
-		void selectTopP(queue<pair<double, double>>&wild, priority_queue<pair<double, double>>&sorted, double p);
+		double evolve(double x, double y, double z) const;
 	};
-};
-
+}
 #endif /* Evolutionary_hpp */
