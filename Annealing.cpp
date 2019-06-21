@@ -12,30 +12,43 @@ namespace dreal {
 	using std::priority_queue;
 	using std::sort;
 	
-	double Evolutionary::optimize(const TestFunction& tf, int numIter) const {
+	double Annealing::optimize(const TestFunction& tf, int numIter) const {
 		std::tuple<double, double, double, double> domain = tf.domain();
 		double maxX = std::get<0>(domain);
 		double minX = std::get<1>(domain);
 		double maxY = std::get<2>(domain);
 		double minY = std::get<3>(domain);
 		
-		double x, y, z, newX, newY, newZ, sigma, temp;
-		sigma =
+		double x, y, z, newX, newY, newZ, sigma,temp;
 		x = this->random(minX,maxX);
 		y = this->random(minY,maxY);
-		z = tf.eval(x,y);
+		temp = 1;
+		const double tempDecrease = 0.95;
 		
 		for(int i = 0; i < numIter; i++) {
-			
+			z = tf.eval(x,y);
+			newX = this->neighbor(x,(maxX - minX)/3*temp);
+			newY = this->neighbor(y,(maxY - minY)/3*temp);
+			newZ = tf.eval(newX, newY);
+			if(probAccept(newZ, z, temp) > this->random(0,1)) {
+				x = newX;
+				y = newY;
+				z = newZ;
+			}
+			temp = tempDecrease*temp;
 		}
 		
 		return z;
 	};
 	
-	std::string Evolutionary::name() const {
+	std::string Annealing::name() const {
 		return "Simulated Annealing";
 	}
 	
-	double Evolutionary::neighbor(double current, double sigma) const {};
-	double Evolutionary::probAccept(double newCost, double oldCost) const{};
+	double Annealing::neighbor(double current, double sigma) const {
+		return current + (sigma*(this->stNormal()));
+	};
+	double Annealing::probAccept(double newCost, double oldCost, double temp) const{
+		return std::exp((oldCost - newCost)/(temp));
+	};
 };

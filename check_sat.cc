@@ -18,6 +18,8 @@
 #include "Optimizer.cpp"
 #include "Evolutionary.hpp"
 #include "Evolutionary.cpp"
+#include "Annealing.hpp"
+#include "Annealing.cpp"
 
 namespace dreal {
 	namespace {
@@ -148,13 +150,21 @@ int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 	srand (time(NULL));
 //	dreal::minimize_main();
-//	dreal::test_random(50000, dreal::Booth(), dreal::Optimizer());
-//	dreal::test_random(50000, dreal::Booth(), dreal::Evolutionary());
+//	dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
+//	dreal::test_random(30000, dreal::LeviN13(), dreal::Evolutionary());
+//	dreal::test_random(30000, dreal::LeviN13(), dreal::Annealing());
+//	dreal::test_random(30000, dreal::Booth(), dreal::Optimizer());
+//	dreal::test_random(30000, dreal::Booth(), dreal::Evolutionary());
+//	dreal::test_random(30000, dreal::Booth(), dreal::Annealing());
 	
 //	dreal::compare_on_model(300, 1000, dreal::LeviN13(), dreal::Optimizer());
 	
-	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Optimizer());
-	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Evolutionary());
+	dreal::compare_on_model(100, 10000, dreal::LeviN13(), dreal::Optimizer()); //100 experiments
+	dreal::compare_on_model(100, 10000, dreal::LeviN13(), dreal::Evolutionary()); //each with 10000 rounds
+	dreal::compare_on_model(100, 10000, dreal::LeviN13(), dreal::Annealing());    // of whichever random method
 	
+	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Optimizer()); 
+	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Evolutionary());
+	dreal::compare_on_model(100, 10000, dreal::Booth(), dreal::Annealing());
 	return 0;
 }

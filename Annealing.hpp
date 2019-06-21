@@ -18,7 +18,7 @@ namespace dreal {
 		virtual std::string name() const;
 	protected:
 		double neighbor(double current, double sigma) const;
-		double probAccept(double newCost, double oldCost) const;
+		double probAccept(double newCost, double oldCost,double temp) const;
 	};
 }
 
