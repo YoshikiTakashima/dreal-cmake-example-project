@@ -45,6 +45,7 @@
 		7EE73B8F22BBF6A6001AFE39 /* Booth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Booth.hpp; sourceTree = "<group>"; };
 		7EE73B9222BC4EF7001AFE39 /* Evolutionary.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Evolutionary.cpp; sourceTree = "<group>"; };
 		7EE73B9322BC4EF7001AFE39 /* Evolutionary.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Evolutionary.hpp; sourceTree = "<group>"; };
+		7EE74E2622BE9885007913C4 /* Project_Overview.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Project_Overview.pdf; sourceTree = "<group>"; };
 		7EE8083822BD3C300079715B /* Annealing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Annealing.cpp; sourceTree = "<group>"; };
 		7EE8083922BD3C300079715B /* Annealing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Annealing.hpp; sourceTree = "<group>"; };
 		7EE8083A22BD72450079715B /* HolderTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HolderTable.cpp; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 				7EBF4DA322B83C7F003AC3F0 /* CMakeLists.txt */,
 				7EBF4DA422B83C7F003AC3F0 /* LICENSE */,
 				7EBF4DA522B83C7F003AC3F0 /* README.md */,
+				7EE74E2622BE9885007913C4 /* Project_Overview.pdf */,
 			);
 			sourceTree = "<group>";
 		};

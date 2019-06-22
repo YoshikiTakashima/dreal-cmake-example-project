@@ -61,7 +61,7 @@ namespace dreal {
 			return 0;
 		}
 		
-		void test_random(int numRandomIter,const TestFunction& tf, const Optimizer& opt){
+		void test_random(int numRandomIter, TestFunction tf, const Optimizer& opt){
 			high_resolution_clock::time_point t1;
 			high_resolution_clock::time_point t2;
 			std::chrono::duration<double, std::milli> execTime;
@@ -77,38 +77,55 @@ namespace dreal {
 			cout << "Time it took: " << execTime.count() << " (ms)" << endl << endl << endl;
 		}
 		
-		void test_no_less(int numRandomIter,const TestFunction& tf, const Optimizer& opt){
+		void proof_repeat(int numTests, int numRandomIter,const TestFunction& tf, const Optimizer& opt){
 			high_resolution_clock::time_point t1;
 			high_resolution_clock::time_point t2;
-			std::chrono::duration<double, std::milli> optTime;
-			std::chrono::duration<double, std::milli> checkTime;
+			std::chrono::duration<double, std::milli> time;
 			
-			t1 = high_resolution_clock::now();
-			double approx_min = opt.optimize(tf, numRandomIter);
-			t2 = high_resolution_clock::now();
-			optTime = t2 - t1;
-			
+			double approx_min;
+			double average = 0;
+			double average2 = 0;
 			const double delta = 0.001;
-			const Variable x{"x"};
-			const Variable y{"y"};
-			const Expression f = tf.getFunction(x,y);
-			const Formula c = (tf.getConstraint(x,y) && (f < (approx_min-(delta)))); //strengthen
-			
-			t1 = high_resolution_clock::now();
-			optional<Box> result = CheckSatisfiability(c, delta);
-			t2 = high_resolution_clock::now();
-			checkTime = t2 - t1;
-			
-			if(result) {
-				cout << "Approximation not good enough!" << approx_min << endl;
-				cout << "Satisfying Region"<< *result << endl;
-			} else {
-				cout << "Test Function: " << tf << endl;
-				cout << "Approx Min: " << approx_min << endl;
-				cout << "Beyond delta = " << delta <<", no greater exists" << endl;
-				cout << "Time it took: " << (optTime.count() + checkTime.count())
-						<< " (ms)" << endl << endl << endl;
+			for(int i = 0; i < numTests; i++) {
+				const Variable x{"x"};
+				const Variable y{"y"};
+				const Expression f = tf.getFunction(x,y);
+				
+				const Formula cstr = tf.getConstraint(x,y);
+				optional<Box> result2;
+				t1 = high_resolution_clock::now();
+				result2 = Minimize(f, cstr, delta);
+				t2 = high_resolution_clock::now();
+				time = t2 - t1;
+				average2 = (average2*(((double) i)/((double) i + 1)) + (time.count()/((double) i + 1)));
+				
+				Formula c;
+				optional<Box> result;
+				
+				t1 = high_resolution_clock::now();
+				while(true) {
+					approx_min = opt.optimize(tf, numRandomIter);
+					c = (tf.getConstraint(x,y) && (f < (approx_min-(delta)))); //strengthen
+					result = CheckSatisfiability(c, delta);
+					if(result) {
+						
+					} else {
+						break;
+					}
+				}
+				t2 = high_resolution_clock::now();
+				time = t2 - t1;
+				
+				average = (average*(((double) i)/((double) i + 1)) + (time.count()/((double) i + 1)));
 			}
+			
+			cout << "Test Function: " << tf << ", " << numTests << " experiments." << endl;
+			cout << "Direct Solve: " << average2 << " (ms)." << endl;
+			cout << "Estimation Method: " << opt << endl;
+			cout << "Random search & Prove: " << average << " (ms)" << endl;
+			cout << "Speedup: " << (average2 / (average)) << endl;
+			cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl<< endl<< endl;
+			
 			
 		}
 		
@@ -190,27 +207,20 @@ namespace dreal {
 
 int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
-//	srand (time(NULL));
-	const int choice = 2;
-	if(choice == 1) {
-		dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
-		dreal::test_random(30000, dreal::LeviN13(), dreal::Evolutionary());
-		dreal::test_random(2000, dreal::LeviN13(), dreal::Annealing());
-		dreal::test_random(30000, dreal::Booth(), dreal::Optimizer());
-		dreal::test_random(30000, dreal::Booth(), dreal::Evolutionary());
-		dreal::test_random(2000, dreal::Booth(), dreal::Annealing());
-		dreal::test_random(30000, dreal::HolderTable(), dreal::Optimizer());
-		dreal::test_random(30000, dreal::HolderTable(), dreal::Evolutionary());
-		dreal::test_random(2000, dreal::HolderTable(), dreal::Annealing());
-	} else if(choice == 2) {
-		dreal::test_no_less(4000, dreal::Trefethen(),dreal::Annealing());
-		dreal::test_no_less(4000, dreal::MishraBird(),dreal::Annealing());
-	} else {
-//		dreal::compare_on_model(100, 4000, dreal::LeviN13(), dreal::Annealing());
-//		dreal::compare_on_model(100, 4000, dreal::Booth(), dreal::Annealing());
-//		dreal::compare_on_model(3, 4000, dreal::HolderTable(), dreal::Annealing()); //this takes 30 sec.
-//		dreal::compare_on_model(30, 4000, dreal::Trefethen(), dreal::Annealing());
-		dreal::compare_on_model(30, 4000, dreal::MishraBird(), dreal::Annealing());
-	}
+	srand (time(NULL));
+	
+	std::cout << "Technique: approximation-assisted minimization" << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+	dreal::compare_on_model(100, 4000, dreal::LeviN13(), dreal::Annealing());
+	dreal::compare_on_model(100, 4000, dreal::Booth(), dreal::Annealing());
+	dreal::compare_on_model(3, 4000, dreal::HolderTable(), dreal::Annealing()); //this takes 30 sec.
+	dreal::compare_on_model(30, 4000, dreal::Trefethen(), dreal::Annealing());
+	dreal::compare_on_model(30, 4000, dreal::MishraBird(), dreal::Annealing());
+	
+	std::cout << "Technique: keep estimating until it can be proven to be minimum." << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+	dreal::proof_repeat(30,4000, dreal::Trefethen(),dreal::Annealing());
+	dreal::proof_repeat(30,4000, dreal::MishraBird(),dreal::Annealing());
+	dreal::proof_repeat(3,4000, dreal::HolderTable(),dreal::Annealing());
 	return 0;
 }
