@@ -15,6 +15,8 @@
 #include "Booth.cpp"
 #include "HolderTable.hpp"
 #include "HolderTable.cpp"
+#include "Trefethen.hpp"
+#include "Trefethen.cpp"
 
 #include "Optimizer.hpp"
 #include "Optimizer.cpp"
@@ -36,20 +38,20 @@ namespace dreal {
 			const Variable x{"x"};
 			const Variable y{"y"};
 			
-			const TestFunction& tf = LeviN13();
+			const TestFunction& tf = Trefethen();
 			const Expression f = tf.getFunction(x,y);
-			const Formula c = tf.getConstraint(x,y);
+			const Formula c = tf.getConstraint(x,y,-3);
 			
 			optional<Box> result;
-//			high_resolution_clock::time_point t1 = high_resolution_clock::now();
-//			result = Minimize(f, c, delta);
-//			high_resolution_clock::time_point t2 = high_resolution_clock::now();
-//			std::chrono::duration<double, std::milli> execTime = t2 - t1;
+			high_resolution_clock::time_point t1 = high_resolution_clock::now();
+			result = Minimize(f, c, delta);
+			high_resolution_clock::time_point t2 = high_resolution_clock::now();
+			std::chrono::duration<double, std::milli> execTime = t2 - t1;
 			
 			cout << "Region:" << c << endl;
 			if (result) {
-//				cout << "Optimize: "<< tf << "\nMinimum Point:\n" << *result << endl;
-//				cout << "\nThis took : " << execTime.count() << " ms to find min." << endl << endl;
+				cout << "Optimize: "<< tf << "\nMinimum Point:\n" << *result << endl;
+				cout << "\nThis took : " << execTime.count() << " ms to find min." << endl << endl;
 			} else {
 				cout << "No minimum found: what??\n" << f << endl;
 			}
@@ -70,7 +72,43 @@ namespace dreal {
 			cout << "Test Function: " << tf << endl;
 			cout << "Using: " << opt << ", " << numRandomIter << " rounds." << endl;
 			cout << "Random approx of min:" << approx_min << endl;
-			cout << "Time it took: " << execTime.count() << endl << endl << endl;
+			cout << "Time it took: " << execTime.count() << " (ms)" << endl << endl << endl;
+		}
+		
+		void test_no_less(int numRandomIter,const TestFunction& tf, const Optimizer& opt){
+			high_resolution_clock::time_point t1;
+			high_resolution_clock::time_point t2;
+			std::chrono::duration<double, std::milli> optTime;
+			std::chrono::duration<double, std::milli> checkTime;
+			
+			t1 = high_resolution_clock::now();
+			double approx_min = opt.optimize(tf, numRandomIter);
+			t2 = high_resolution_clock::now();
+			optTime = t2 - t1;
+			
+			const double delta = 0.001;
+			const Variable x{"x"};
+			const Variable y{"y"};
+			const Expression f = tf.getFunction(x,y);
+			const Formula c = (tf.getConstraint(x,y) && (f < (approx_min-(delta)))); //strengthen
+			
+			t1 = high_resolution_clock::now();
+			optional<Box> result = CheckSatisfiability(c, delta);
+			t2 = high_resolution_clock::now();
+			checkTime = t2 - t1;
+			
+			if(result) {
+				cout << "Approximation not good enough!" << approx_min << endl;
+				cout << "Satisfying Region"<< *result << endl;
+			} else {
+				cout << "Test Function: " << tf << endl;
+				cout << "Approx Min: " << approx_min << endl;
+				cout << "Checking Formula:" << c << endl;
+				cout << "Within delta, no greater exists";
+				cout << "Time it took: " << (optTime.count() + checkTime.count())
+						<< " (ms)" << endl << endl << endl;
+			}
+			
 		}
 		
 		void compare_on_model(int numTests, int numRandomIter,const TestFunction& tf, const Optimizer& opt) {
@@ -104,7 +142,7 @@ namespace dreal {
 				estimateMin = opt.optimize(tf, numRandomIter);
 				o2 = high_resolution_clock::now();
 				
-				const Formula cReduced = tf.getConstraint(x,y,estimateMin);
+				const Formula cReduced = tf.getConstraint(x,y,(estimateMin + (delta)));
 				r1 = high_resolution_clock::now();
 				result2 = Minimize(f, cReduced, delta);
 				r2 = high_resolution_clock::now();
@@ -151,7 +189,7 @@ namespace dreal {
 
 int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
-	srand (time(NULL));
+//	srand (time(NULL));
 	const int choice = 3;
 	if(choice == 1) {
 		dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
@@ -160,15 +198,16 @@ int main() {
 		dreal::test_random(30000, dreal::Booth(), dreal::Optimizer());
 		dreal::test_random(30000, dreal::Booth(), dreal::Evolutionary());
 		dreal::test_random(2000, dreal::Booth(), dreal::Annealing());
-	} else if (choice == 2) {
-		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Optimizer());
-		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Annealing());
-		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Optimizer());
-		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Annealing());
+		dreal::test_random(30000, dreal::HolderTable(), dreal::Optimizer());
+		dreal::test_random(30000, dreal::HolderTable(), dreal::Evolutionary());
+		dreal::test_random(2000, dreal::HolderTable(), dreal::Annealing());
+	} else if(choice == 2) {
+//		dreal::compare_on_model(100, 4000, dreal::LeviN13(), dreal::Annealing());
+//		dreal::compare_on_model(100, 4000, dreal::Booth(), dreal::Annealing());
+//		dreal::compare_on_model(3, 4000, dreal::HolderTable(), dreal::Annealing()); //this takes 30 sec.
+//		dreal::compare_on_model(30, 4000, dreal::Trefethen(), dreal::Annealing());
 	} else {
-//		dreal::compare_on_model(100, 2000, dreal::LeviN13(), dreal::Annealing());
-//		dreal::compare_on_model(100, 2000, dreal::Booth(), dreal::Annealing());
-		dreal::minimize_main();
+		dreal::test_no_less(4000, dreal::Trefethen(),dreal::Annealing());
 	}
 	return 0;
 }

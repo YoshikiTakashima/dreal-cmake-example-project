@@ -82,7 +82,7 @@ namespace dreal {
 			points.pop();
 		}
 		
-		return best;
+		return best + 0.0001;
 	};
 	
 	std::string Evolutionary::name() const {

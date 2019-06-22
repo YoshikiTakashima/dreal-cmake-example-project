@@ -15,6 +15,8 @@ CMakeFiles/check_sat.dir/check_sat.cc.o: ../Optimizer.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../Optimizer.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../TestFunction.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../TestFunction.hpp
+CMakeFiles/check_sat.dir/check_sat.cc.o: ../Trefethen.cpp
+CMakeFiles/check_sat.dir/check_sat.cc.o: ../Trefethen.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../check_sat.cc
 CMakeFiles/check_sat.dir/check_sat.cc.o: /usr/local/opt/clp@1.17/include/clp/coin/ClpConfig.h
 CMakeFiles/check_sat.dir/check_sat.cc.o: /usr/local/opt/clp@1.17/include/clp/coin/ClpMatrixBase.hpp

@@ -19,26 +19,40 @@ namespace dreal {
 		double maxY = std::get<2>(domain);
 		double minY = std::get<3>(domain);
 		
-		double x, y, z, newX, newY, newZ, sigma,temp;
+		
+		
+		const double tempDecrease = 0.99;
+		const double smallEnough =0.00001;
+		int itersUntilConvergence = std::ceil(std::log(smallEnough) / std::log(tempDecrease));
+		
+		double x, y, z, newX, newY, newZ,temp;
 		x = this->random(minX,maxX);
 		y = this->random(minY,maxY);
-		temp = 1;
-		const double tempDecrease = 0.99;
+		z = tf.eval(x,y);
+		double best = z;
 		
-		for(int i = 0; i < numIter; i++) {
-			z = tf.eval(x,y);
-			newX = this->neighbor(x,(maxX - minX)/3*temp);
-			newY = this->neighbor(y,(maxY - minY)/3*temp);
-			newZ = tf.eval(newX, newY);
-			if(probAccept(newZ, z, temp) > this->random(0,1)) {
-				x = newX;
-				y = newY;
-				z = newZ;
+		for(int j = 0; j < std::max(1, numIter / itersUntilConvergence); j++) {
+			temp = 1;
+			for(int i = 0; i < itersUntilConvergence; i++) {
+				z = tf.eval(x,y);
+				newX = std::max(minX, std::min(this->neighbor(x,(maxX - minX)/2*temp),maxX));
+				newY = std::max(minY, std::min(this->neighbor(y,(maxY - minY)/2*temp),maxY));
+				newZ = tf.eval(newX, newY);
+				if(probAccept(newZ, z, temp) > this->random(0,1)) {
+					x = newX;
+					y = newY;
+					z = newZ;
+				}
+				temp = tempDecrease*temp;
 			}
-			temp = tempDecrease*temp;
+			x = this->random(minX,maxX);
+			y = this->random(minY,maxY);
+			if (z < best) {
+				best = z;
+			}
 		}
 		
-		return z;
+		return best;
 	};
 	
 	std::string Annealing::name() const {
