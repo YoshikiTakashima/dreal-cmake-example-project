@@ -11,6 +11,8 @@ CMakeFiles/check_sat.dir/check_sat.cc.o: ../HolderTable.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../HolderTable.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../LeviN13.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../LeviN13.hpp
+CMakeFiles/check_sat.dir/check_sat.cc.o: ../MishraBird.cpp
+CMakeFiles/check_sat.dir/check_sat.cc.o: ../MishraBird.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../Optimizer.cpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../Optimizer.hpp
 CMakeFiles/check_sat.dir/check_sat.cc.o: ../TestFunction.cpp

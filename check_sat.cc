@@ -17,6 +17,8 @@
 #include "HolderTable.cpp"
 #include "Trefethen.hpp"
 #include "Trefethen.cpp"
+#include "MishraBird.hpp"
+#include "MishraBird.cpp"
 
 #include "Optimizer.hpp"
 #include "Optimizer.cpp"
@@ -103,8 +105,7 @@ namespace dreal {
 			} else {
 				cout << "Test Function: " << tf << endl;
 				cout << "Approx Min: " << approx_min << endl;
-				cout << "Checking Formula:" << c << endl;
-				cout << "Within delta, no greater exists";
+				cout << "Beyond delta = " << delta <<", no greater exists" << endl;
 				cout << "Time it took: " << (optTime.count() + checkTime.count())
 						<< " (ms)" << endl << endl << endl;
 			}
@@ -190,7 +191,7 @@ namespace dreal {
 int main() {
 	std::cout << "Running Experiments..." << std::endl << std::endl << std::endl;
 //	srand (time(NULL));
-	const int choice = 3;
+	const int choice = 2;
 	if(choice == 1) {
 		dreal::test_random(30000, dreal::LeviN13(), dreal::Optimizer());
 		dreal::test_random(30000, dreal::LeviN13(), dreal::Evolutionary());
@@ -202,12 +203,14 @@ int main() {
 		dreal::test_random(30000, dreal::HolderTable(), dreal::Evolutionary());
 		dreal::test_random(2000, dreal::HolderTable(), dreal::Annealing());
 	} else if(choice == 2) {
+		dreal::test_no_less(4000, dreal::Trefethen(),dreal::Annealing());
+		dreal::test_no_less(4000, dreal::MishraBird(),dreal::Annealing());
+	} else {
 //		dreal::compare_on_model(100, 4000, dreal::LeviN13(), dreal::Annealing());
 //		dreal::compare_on_model(100, 4000, dreal::Booth(), dreal::Annealing());
 //		dreal::compare_on_model(3, 4000, dreal::HolderTable(), dreal::Annealing()); //this takes 30 sec.
 //		dreal::compare_on_model(30, 4000, dreal::Trefethen(), dreal::Annealing());
-	} else {
-		dreal::test_no_less(4000, dreal::Trefethen(),dreal::Annealing());
+		dreal::compare_on_model(30, 4000, dreal::MishraBird(), dreal::Annealing());
 	}
 	return 0;
 }
